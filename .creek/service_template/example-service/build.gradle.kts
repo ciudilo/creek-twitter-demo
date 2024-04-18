@@ -40,16 +40,16 @@ dependencies {
 modularity.patchModule("kafka.streams", "kafka-streams-test-utils-$kafkaVersion.jar")
 
 application {
-    mainModule.set("basic.kafka.streams.demo.example.service")
-    mainClass.set("io.github.creek.service.basic.kafka.streams.demo.example.service.ServiceMain")
+    mainModule.set("creek.twitter.demo.example.service")
+    mainClass.set("io.github.ciudilo.creek.twitter.demo.example.service.ServiceMain")
 }
 
 val buildAppImage = tasks.register<DockerBuildImage>("buildAppImage") {
     dependsOn("prepareDocker")
     buildArgs.put("APP_NAME", project.name)
     buildArgs.put("APP_VERSION", "${project.version}")
-    images.add("ghcr.io/creek-service/${rootProject.name}-${project.name}:latest")
-    images.add("ghcr.io/creek-service/${rootProject.name}-${project.name}:${project.version}")
+    images.add("ghcr.io/ciudilo/${rootProject.name}-${project.name}:latest")
+    images.add("ghcr.io/ciudilo/${rootProject.name}-${project.name}:${project.version}")
 }
 
 tasks.register<Copy>("prepareDocker") {
@@ -66,7 +66,7 @@ tasks.register<Copy>("prepareDocker") {
 
 tasks.register<DockerPushImage>("pushAppImage") {
     dependsOn("buildAppImage")
-    images.add("ghcr.io/creek-service/${rootProject.name}-${project.name}:latest")
-    images.add("ghcr.io/creek-service/${rootProject.name}-${project.name}:${project.version}")
+    images.add("ghcr.io/ciudilo/${rootProject.name}-${project.name}:latest")
+    images.add("ghcr.io/ciudilo/${rootProject.name}-${project.name}:${project.version}")
 }
 

@@ -14,4 +14,4 @@
 # limitations under the License.
 #
 
-io.github.creek.service.basic.kafka.streams.demo.api.BasicKafkaStreamsDemoAggregateDescriptor
+io.github.ciudilo.creek.twitter.demo.api.CreekTwitterDemoAggregateDescriptor

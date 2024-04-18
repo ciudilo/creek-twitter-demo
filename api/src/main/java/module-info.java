@@ -1,14 +1,14 @@
-import io.github.creek.service.basic.kafka.streams.demo.api.BasicKafkaStreamsDemoAggregateDescriptor;
+import io.github.ciudilo.creek.twitter.demo.api.CreekTwitterDemoAggregateDescriptor;
 import org.creekservice.api.platform.metadata.ComponentDescriptor;
 
-module basic.kafka.streams.demo.api {
+module creek.twitter.demo.api {
     requires transitive creek.kafka.metadata;
 
-    exports io.github.creek.service.basic.kafka.streams.demo.api;
-    exports io.github.creek.service.basic.kafka.streams.demo.internal to
-            basic.kafka.streams.demo.services,
-            basic.kafka.streams.demo.service;
+    exports io.github.ciudilo.creek.twitter.demo.api;
+    exports io.github.ciudilo.creek.twitter.demo.internal to
+            creek.twitter.demo.services,
+            creek.twitter.demo.service;
 
     provides ComponentDescriptor with
-            BasicKafkaStreamsDemoAggregateDescriptor;
+            CreekTwitterDemoAggregateDescriptor;
 }
